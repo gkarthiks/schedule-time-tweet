@@ -15,7 +15,7 @@ try {
     `);
     var tweetTime = issueContext.substring(issueContext.indexOf("Time:")+5, issueContext.length).trim()
 
-    console.log("================ Scheduled Time---> ", scheduledTime)
+    console.log("================ Scheduled Time---> ", tweetTime)
 
     
     //Validate the given timestamp
