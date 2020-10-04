@@ -33,9 +33,9 @@ try {
 }
 
 function validateTweetSchedule(tweetTime) {
-    var parsedDate = Date.parse(tweetTime);
+    var parsedTime = Date.parse(tweetTime);
 
-    if (isNaN(parsedDate)) {
+    if (isNaN(parsedTime)) {
         core.error("Error occured while parsing the given timestamp. Please provide the time in conventional UTC format as 2020-10-04T16:02:11.029Z")
         core.setFailed("Error occured while parsing the given timestamp. Please provide the time in conventional UTC format as 2020-10-04T16:02:11.029Z")   
     }
@@ -44,7 +44,7 @@ function validateTweetSchedule(tweetTime) {
 function isTimeToTweet(tweetTime) {
     parsedTime = Date.parse(tweetTime)
     presentTime = new Date().getTime()
-    if ((presentTime-parsedDate) <= 900000 ) {
+    if ((presentTime-parsedTime) <= 900000 ) {
         return true
     } else {
         return false
