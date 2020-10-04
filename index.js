@@ -13,9 +13,6 @@ try {
     The symbol declared for parsing is ${startingParseSymbol}
     The issue title is ${issueTitle}
     `);
-    var tweetTime = issueContext.substring(issueContext.indexOf(startingParseSymbol) + startingParseSymbol.length, issueContext.lastIndexOf(startingParseSymbol));
-    console.log(`The tweet schedule is ${tweetTime}`);
-
     var scheduledTime = issueContext.substring(issueContext.indexOf("Time:")+5, issueContext.length).trim()
 
     console.log("================ Scheduled Time---> ", scheduledTime)
