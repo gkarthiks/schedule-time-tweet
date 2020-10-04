@@ -13,5 +13,3 @@ jobs:
       - name: parsing from body of the issue
         uses: ./
         id: parse-issue
-        with:
-          time-schedule-parser: '<!--::-->'
