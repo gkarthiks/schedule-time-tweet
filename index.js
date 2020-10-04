@@ -15,8 +15,37 @@ try {
     `);
     var scheduledTime = issueContext.substring(issueContext.indexOf("Time:")+5, issueContext.length).trim()
 
-    console.log("================ Scheduled Time---> ", scheduledTime.trim())
+    console.log("================ Scheduled Time---> ", scheduledTime)
+
+    //Validate the given timestamp
+    validateTweetSchedule(tweetTime)
+
+    isTweetingTime = isTimeToTweet(tweetTime)
+
+    if (isTweetingTime) {
+        console.log("=======================>>> ", isTweetingTime)
+        core.setOutput(true)
+    }
 
 } catch (error) {
     core.setFailed(error.message);
+}
+
+function validateTweetSchedule(tweetTime) {
+    var parsedDate = Date.parse(tweetTime);
+
+    if (isNaN(parsedDate)) {
+        core.error("Error occured while parsing the given timestamp. Please provide the time in conventional UTC format as 2020-10-04T16:02:11.029Z")
+        core.setFailed("Error occured while parsing the given timestamp. Please provide the time in conventional UTC format as 2020-10-04T16:02:11.029Z")   
+    }
+}
+
+function isTimeToTweet(tweetTime) {
+    parsedTime = Date.parse(tweetTime)
+    presentTime = new Date().getTime()
+    if ((presentTime-parsedDate) <= 900000 ) {
+        return true
+    } else {
+        return false
+    }
 }
