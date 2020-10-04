@@ -1,0 +1,10 @@
+name: 'Contributor Tweet Test'
+description: 'Parses the isssue and creates a PR'
+inputs:
+  time-schedule-parser:
+    description: 'The parsing symbol for time schedule, time must be in UTC'
+    required: true
+    default: '<!--::-->'
+runs:
+  using: 'node12'
+  main: 'index.js'

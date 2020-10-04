@@ -1,0 +1,17 @@
+name: Parse scheduled time in issue
+on:
+  issues:
+    types: ['opened']
+
+jobs:
+  parse-issue-and-create-pr:
+    runs-on: ubuntu-latest
+    name: A job to parse issue and extract the time
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: parsing from body of the issue
+        uses: ./
+        id: parse-issue
+        with:
+          time-schedule-parser: '<!--::-->'
