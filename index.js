@@ -13,10 +13,11 @@ try {
     The symbol declared for parsing is ${startingParseSymbol}
     The issue title is ${issueTitle}
     `);
-    var scheduledTime = issueContext.substring(issueContext.indexOf("Time:")+5, issueContext.length).trim()
+    var tweetTime = issueContext.substring(issueContext.indexOf("Time:")+5, issueContext.length).trim()
 
     console.log("================ Scheduled Time---> ", scheduledTime)
 
+    
     //Validate the given timestamp
     validateTweetSchedule(tweetTime)
 
