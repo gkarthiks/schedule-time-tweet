@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: Run a multi-line script
         run: |
+          date
           echo Add other actions to build,
           echo test, and deploy your project.
 
